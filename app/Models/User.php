@@ -26,6 +26,10 @@ class User extends Authenticatable
         'is_approved'
     ];
 
+    public function tenant(){
+        return $this->hasOne(Tenant::class, 'tenant_id');
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *

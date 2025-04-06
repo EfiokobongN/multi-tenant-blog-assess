@@ -16,4 +16,8 @@ class Post extends Model
         'images',
         'tenant_id',
     ];
+
+    public function tenant(){
+        return $this->belongsTo(Tenant::class, 'tenant_id');
+    }
 }

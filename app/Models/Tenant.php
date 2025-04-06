@@ -13,4 +13,12 @@ class Tenant extends Model
         'user_id',
         'tenant_name',
     ];
+
+    public function user(){
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function posts(){
+        return $this->hasMany(Post::class, 'tenant_id');
+    }
 }
