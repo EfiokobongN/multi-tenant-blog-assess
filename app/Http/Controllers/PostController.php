@@ -46,4 +46,10 @@ class PostController extends Controller
 
         return response()->json(['success' => true, 'message' => 'Post Updated Successfully', 'createPost' => $post]);
     }
+
+    public function delete(Post $post){
+        $this->authorize('delete', $post);
+        $post->delete();
+        return response()->json(['success' => true, 'message' => 'Post Deleted Successfully']);
+    }
 }

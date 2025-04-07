@@ -69,7 +69,7 @@ class AuthController extends Controller
         $tokenResult->accessToken->expires_at = $expiration;
         $tokenResult->accessToken->save();
 
-        return response()->json(['sucess'=> true, 'message' => 'Account Login Successful', 'user'=> $user, 'token' => $token,], 200);
+        return response()->json(['sucess'=> true, 'message' => 'Account Login Successful', 'token' => $token,], 200);
     }
 }
 
