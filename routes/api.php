@@ -25,6 +25,7 @@ Route::post('/account-login', [AuthController::class, 'login']);
 Route::middleware('auth:sanctum', 'approved')->group(function () {
     Route::prefix("tenant")->group(function() {
         Route::post('/create/post', [PostController::class, 'store']);
+        Route::post('/update-post/{post}', [PostController::class, 'update']);
     });
 });
 

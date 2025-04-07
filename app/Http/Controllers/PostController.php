@@ -18,10 +18,8 @@ class PostController extends Controller
         $user = Util::Auth();
 
        try {
-        $fileImage = $request->file('images');
-        $originalName = $fileImage->getClientOriginalName();
-        $imagePath = $fileImage->storeAs('posts', $originalName, 'public');
-
+        
+        $imagePath = Util::storeImage($request);
         $createPost = new Post();
         $createPost->user_id = $user->id;
         $createPost->tenant_id = $user->tenant_id;
@@ -34,5 +32,18 @@ class PostController extends Controller
        } catch (\Throwable $th) {
         return response()->json(['message' => $th->getMessage()]);
        }
+    }
+
+    public function update(Request $request, Post $post){
+        $this->authorize('update', $post);
+
+        $imagePath = Util::storeImage($request);
+        $post->topic = $request->topic;
+        $post->content = $request->content;
+        $post->images = $imagePath ?? $post->images;
+
+        $post->update();
+
+        return response()->json(['success' => true, 'message' => 'Post Updated Successfully', 'createPost' => $post]);
     }
 }
