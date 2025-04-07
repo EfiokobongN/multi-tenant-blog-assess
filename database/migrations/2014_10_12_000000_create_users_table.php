@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->enum('role', ['admin', 'tenant'])->default('tenant');
-            $table->foreignId('tenant_id')->constrained()->onDelete('cascade')->nullable();
             $table->boolean('is_approved')->default(false);
             $table->string('password');
             $table->rememberToken();
