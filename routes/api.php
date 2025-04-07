@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PostController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +20,15 @@ use Illuminate\Support\Facades\Route;
 Route::post('/register-account', [AuthController::class, 'store']);
 Route::post('/account-login', [AuthController::class, 'login']);
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+
+
+Route::middleware('auth:sanctum', 'approved')->group(function () {
+    Route::prefix("tenant")->group(function() {
+        Route::post('/create/post', [PostController::class, 'store']);
+    });
+});
+
+
+Route::middleware('auth:sanctum','checkAdminRole')->group(function () {
+    Route::post('/admin/approve/{user}', [AdminController::class, 'approvedUser']);
 });

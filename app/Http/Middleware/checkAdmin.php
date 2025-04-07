@@ -7,7 +7,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class AccountIsApproved
+class checkAdmin
 {
     /**
      * Handle an incoming request.
@@ -18,8 +18,8 @@ class AccountIsApproved
     {
         $user = Util::Auth();
 
-        if($user && !$user->is_approved){
-            return response()->json(['success' => false, 'message'=> 'Account Not Approved'], 403);
+        if(!$user || $user->role !== 'admin'){
+            return response()->json(['success' => false, 'message' => 'UnAuthorized'], 403);
         }
         return $next($request);
     }
