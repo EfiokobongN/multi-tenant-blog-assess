@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use App\Models\Tenant;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -35,5 +36,14 @@ class AdminController extends Controller
            DB::rollBack();
            return response()->json(['message' => $th->getMessage()]);
         }
+    }
+
+    public function allpost(){
+        $allPost = Post::all()->with('tenant')->get();
+        if (!$allPost) {
+            return response()->json([ 'message' => 'No Post Found']);
+        }
+
+        return response()->json(['success' => true, 'message' => 'All Datas', 'allPost' => $allPost]);
     }
 }

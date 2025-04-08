@@ -14,6 +14,26 @@ class PostController extends Controller
         $this->middleware('approved');
     }
 
+
+    public function index(){
+        $user = Util::Auth();
+        $tenantPosts = Post::where('tenant_id', $user->tenant_id)->where('user_id',$user->id)->get();
+        if (!$tenantPosts) {
+            return response()->json([ 'message' => 'No Post Found']);
+        }
+
+        return response()->json(['success' => true, 'message' => 'All Datas', 'tenantPosts' => $tenantPosts]);
+    }
+    public function view(Post $post){
+        $postId = $post->get();
+        if ($postId->isEmpty()) {
+            return response()->json([ 'message' => 'No Post Found']);
+        }
+
+        return response()->json(['success' => true, 'message' => 'All Datas', 'postId' => $postId]);
+    }
+
+
     public  function store(CreatePostRequest $request){
         $user = Util::Auth();
 

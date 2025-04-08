@@ -27,10 +27,13 @@ Route::middleware('auth:sanctum', 'approved')->group(function () {
         Route::post('/create/post', [PostController::class, 'store']);
         Route::post('/update-post/{post}', [PostController::class, 'update']);
         Route::post('/delete-post/{post}', [PostController::class, 'delete']);
+        Route::get('/posts/view', [PostController::class, 'index']);
+        Route::get('/posts/{post}', [PostController::class, 'view']);
     });
 });
 
 
 Route::middleware('auth:sanctum','checkAdminRole')->group(function () {
     Route::post('/admin/approve/{user}', [AdminController::class, 'approvedUser']);
+    Route::get('/admin/posts', [AdminController::class, 'allpost']);
 });
