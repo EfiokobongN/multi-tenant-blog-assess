@@ -74,3 +74,17 @@ Multi-Tenant Blog API Endpoint
 |-- routes
 │   |-- api.php
 |-- README.md
+
+
+## Roles
+
+Role         Description
+
+-- Admin      Approve pending Account and see all tenants posts
+-- Tenant     Can CRUD post within their tenant
+
+
+## Approval Flows
+--- Tenant Register (api/register)
+---Admin aproves user and tenant is create (api//admin/approve/user_id)
+--- Tenant Receive access
