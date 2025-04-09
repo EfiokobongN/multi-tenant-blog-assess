@@ -47,7 +47,7 @@ Multi-Tenant Blog API Endpoint
 -- DB_USERNAME=Your database user name
 -- DB_PASSWORD= your database user password leave blank if no password is required for user to connect
 # 6.Run Migration
-. php artisan migrate
+--comand: php artisan migrate
 
 # 7.Create Default admin
 --command: php artisan tinker
