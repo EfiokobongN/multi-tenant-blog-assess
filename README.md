@@ -28,21 +28,26 @@ Multi-Tenant Blog API Endpoint
 #  1. Clone the repository
 -command:  git clone https://github.com/EfiokobongN/multi-tenant-blog-assess.git
 
-- Cd multi-tenant-blog-assess
+- cd multi-tenant-blog-assess
 
 # 2. Install dependencies
 - composer install
 
 # 3. Create enviroment file
-- cp .env.example  .env
+- cp .env.example .env
 
 # 4. Generate application key
 . php artisan key:generate
 
-# 5. configure your ienv (DB details)
-
+# 5. configure your env (DB details)
+-- DB_CONNECTION=mysql
+-- DB_HOST=127.0.0.1
+-- DB_PORT=3306
+-- DB_DATABASE= your database name
+-- DB_USERNAME=Your database user name
+-- DB_PASSWORD= your database user password leave blank if no password is required for user to connect
 # 6.Run Migration
-. php artisanmigrate
+. php artisan migrate
 
 # 7.Create Default admin
 --command: php artisan tinker
