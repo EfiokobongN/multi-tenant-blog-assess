@@ -26,7 +26,7 @@ Multi-Tenant Blog API Endpoint
 
 ```BASH or command prompt
 #  1. Clone the repository
-- git clone https://github.com/EfiokobongN/multi-tenant-blog-assess.git
+-command:  git clone https://github.com/EfiokobongN/multi-tenant-blog-assess.git
 
 - Cd multi-tenant-blog-assess
 
