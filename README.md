@@ -37,7 +37,10 @@ Multi-Tenant Blog API Endpoint
 - cp .env.example .env
 
 # 4. Generate application key
-. php artisan key:generate
+--command:  php artisan key:generate
+
+# 2. serve the application
+--command: php artisan serve
 
 # 5. configure your env (DB details)
 -- DB_CONNECTION=mysql
