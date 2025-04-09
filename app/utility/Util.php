@@ -15,6 +15,9 @@ class Util {
     public static function storeImage($request){
         $imagePath = [];
         $fileImage = $request->file('images');
+        if(!$fileImage){
+            return null;
+        }
         $originalName = $fileImage->getClientOriginalName();
         $imagePath = $fileImage->storeAs('posts', $originalName, 'public');
 

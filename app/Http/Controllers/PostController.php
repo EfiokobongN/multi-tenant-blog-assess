@@ -25,12 +25,13 @@ class PostController extends Controller
         return response()->json(['success' => true, 'message' => 'All Datas', 'tenantPosts' => $tenantPosts]);
     }
     public function view(Post $post){
-        $postId = $post->get();
-        if ($postId->isEmpty()) {
-            return response()->json([ 'message' => 'No Post Found']);
+        $this->authorize('update', $post);
+        $postId = $post;
+        if (!$postId) {
+            return response()->json([ 'message' => 'Post Not Found']);
         }
 
-        return response()->json(['success' => true, 'message' => 'All Datas', 'postId' => $postId]);
+        return response()->json(['success' => true, 'message' => 'Post Details', 'postId' => $postId]);
     }
 
 
@@ -45,7 +46,7 @@ class PostController extends Controller
         $createPost->tenant_id = $user->tenant_id;
         $createPost->topic = $request->topic;
         $createPost->content = $request->content;
-        $createPost->images = $imagePath;
+        $createPost->images = $imagePath ?? null;
         $createPost->save();
 
         return response()->json(['success' => true, 'message' => 'New Post Created Successfully', 'createPost' => $createPost]);

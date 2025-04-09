@@ -46,7 +46,7 @@ Multi-Tenant Blog API Endpoint
 
 # 7.Create Default admin
 --command: php artisan tinker
---User::create(['name' => 'Admin', 'email'=> 'admin@gmail.com', 'password'=> Hash::make('Pasword1234'), 'role'=>'admin', 'is_approved'=> true, 'tenant-id' => null])
+--CreateAdminCommand: User::create(['name' => 'Admin', 'email'=> 'admin@gmail.com', 'password'=> Hash::make('Pasword1234'), 'role'=>'admin', 'is_approved'=> true, 'tenant-id' => null])
 
 
 #Application Structure
@@ -122,4 +122,5 @@ delete  api/delete-post/{post}    Tenant    Tenant Delete own post
 GET     api/posts/{post}          Tenant    Single post view
 POST    api/admin/approve/{user}  Admin     Admin Approved a tenant account
 GET     api/admin/posts           Admin     Admin View all posts (multi-tenant)
+GET     api/admin/post/{post}     Admin     Admin View single post (multi-tenant)
 

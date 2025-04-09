@@ -37,7 +37,9 @@ class AdminController extends Controller
            return response()->json(['message' => $th->getMessage()]);
         }
     }
+    
 
+    //GET ALL TENANTS POSTS IN THE DATABASE
     public function allpost(){
         $allPost = Post::all()->with('tenant')->get();
         if (!$allPost) {
@@ -45,5 +47,16 @@ class AdminController extends Controller
         }
 
         return response()->json(['success' => true, 'message' => 'All Datas', 'allPost' => $allPost]);
+    }
+
+    //VIEW THE DETAILS OF A SINGLE POST
+
+    public function viewPost(Post $post){
+        $postId = $post;
+        if (!$postId) {
+            return response()->json([ 'message' => 'Post Not Found']);
+        }
+
+        return response()->json(['success' => true, 'message' => 'Post Details', 'postId' => $postId]);
     }
 }
