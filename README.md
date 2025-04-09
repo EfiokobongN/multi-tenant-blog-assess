@@ -46,7 +46,7 @@ Multi-Tenant Blog API Endpoint
 
 # 7.Create Default admin
 --command: php artisan tinker
---User::create(['name'=> 'Admin', 'email'=> 'admin@gmail.com', 'password'=> Hash::make('Pasword1234'), 'role'=>'admin', 'is_approved'=> true, 'tenant-id' => null])
+--User::create(['name' => 'Admin', 'email'=> 'admin@gmail.com', 'password'=> Hash::make('Pasword1234'), 'role'=>'admin', 'is_approved'=> true, 'tenant-id' => null])
 
 
 #Application Structure
@@ -88,3 +88,38 @@ Role         Description
 --- Tenant Register (api/register)
 ---Admin aproves user and tenant is create (api//admin/approve/user_id)
 --- Tenant Receive access
+
+## Middleware
+auth:sanctum: Verifies the token
+approved: Ensures user is approved before accessing tenant feature
+Admin: Restricts access to admin-only route
+
+##Policies
+Action      Details
+View        Tenant who owns the post
+update      Tenant who owns the post
+Delete      Tenant who owns the post
+Create      User is approved and role = tenant
+
+## Folder Structure Highlights
+app/Http/Controllers - API Logic
+app/Http/Middleware/AccountApprove - check if the tenant account is approved
+app/Http/Request - Form input request validation
+app/Policies/TenantPostPolicy.php - Post ownership rule
+routes/api.php - API routes
+database/migrations - DB structure
+
+## Routes
+
+Method  Endpoints                 Access    Descrption
+
+POST    api/register-account      Public    Register a user
+POST    api/account-login        Public    Login and receive token
+GET     api/posts/view            Tenant    List all tenant posts
+POST    api/create/post           Tenant    Create a new post
+PUT     api/update-post/{post}    Tenant    Update own post
+delete  api/delete-post/{post}    Tenant    Tenant Delete own post
+GET     api/posts/{post}          Tenant    Single post view
+POST    api/admin/approve/{user}  Admin     Admin Approved a tenant account
+GET     api/admin/posts           Admin     Admin View all posts (multi-tenant)
+

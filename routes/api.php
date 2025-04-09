@@ -26,7 +26,7 @@ Route::middleware('auth:sanctum', 'approved')->group(function () {
     Route::prefix("tenant")->group(function() {
         Route::post('/create/post', [PostController::class, 'store']);
         Route::post('/update-post/{post}', [PostController::class, 'update']);
-        Route::post('/delete-post/{post}', [PostController::class, 'delete']);
+        Route::delete('/delete-post/{post}', [PostController::class, 'delete']);
         Route::get('/posts/view', [PostController::class, 'index']);
         Route::get('/posts/{post}', [PostController::class, 'view']);
     });
