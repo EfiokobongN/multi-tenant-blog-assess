@@ -1,0 +1,1253 @@
+{
+	"info": {
+		"_postman_id": "19e3ae55-cc9b-497e-a8b4-15fd717dc07e",
+		"name": "Multi-tenants-blog",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18725633"
+	},
+	"item": [
+		{
+			"name": "UserAccount",
+			"item": [
+				{
+					"name": "Register",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"FoodiesBlog\",\r\n    \"email\": \"foodiesblog@gmail.com\",\r\n    \"password\": \"12345678\",\r\n    \"password_confirmation\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/register-account",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"register-account"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Register",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"FoodiesBlog\",\r\n    \"email\": \"foodiesblog@gmail.com\",\r\n    \"password\": \"12345678\",\r\n    \"password_confirmation\": \"12345678\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/register-account",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"register-account"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 09 Apr 2025 19:43:09 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"sucess\": true,\n    \"message\": \"Account Pending Approval\",\n    \"user\": {\n        \"name\": \"FoodiesBlog\",\n        \"email\": \"foodiesblog@gmail.com\",\n        \"updated_at\": \"2025-04-09T19:43:09.000000Z\",\n        \"created_at\": \"2025-04-09T19:43:09.000000Z\",\n        \"id\": 3\n    },\n    \"token\": \"4|eKjVwQtXKdKpkaLqyp7PyXgbcNKlNz2xT7rPvsbE8a7bddc4\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"email\": \"admin@gmail.com\",\r\n    \"password\": \"Pasword1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/account-login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"account-login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   \"email\": \"admin@gmail.com\",\r\n    \"password\": \"Pasword1234\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/account-login",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"account-login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 09 Apr 2025 19:44:40 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"sucess\": true,\n    \"message\": \"Account Login Successful\",\n    \"token\": \"5|3UUdsPSHV0GwRICiTzJ0Ix4MnaCkXWRUYhk9neWe074bf5f6\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "TenantsPosts",
+			"item": [
+				{
+					"name": "CreatePost",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "4|eKjVwQtXKdKpkaLqyp7PyXgbcNKlNz2xT7rPvsbE8a7bddc4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "topic",
+									"value": "Their Country Nigeria you and you",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "Error Handling: By wrapping the logic in a try-catch block, we catch potential exceptions and handle them gracefully, rolling back the transaction in case of an error. Throwing a custom ModelNotFoundException or a generic exception with a clear message ensures that users or developers are notified appropriately when something goes wrong.Clean and Readable Code: The code is structured in a readable way, following the naming conventions and ensuring separation of concerns. The use of a dedicated method",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "4RwiiksqD/create job.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/tenant/create/post",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"tenant",
+								"create",
+								"post"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "CreatePost",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "topic",
+											"value": "Their Country Nigeria you and you",
+											"type": "text"
+										},
+										{
+											"key": "content",
+											"value": "Error Handling: By wrapping the logic in a try-catch block, we catch potential exceptions and handle them gracefully, rolling back the transaction in case of an error. Throwing a custom ModelNotFoundException or a generic exception with a clear message ensures that users or developers are notified appropriately when something goes wrong.Clean and Readable Code: The code is structured in a readable way, following the naming conventions and ensuring separation of concerns. The use of a dedicated method",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "4RwiiksqD/create job.png"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/tenant/create/post",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"tenant",
+										"create",
+										"post"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 09 Apr 2025 15:50:55 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"New Post Created Successfully\",\n    \"createPost\": {\n        \"user_id\": 2,\n        \"tenant_id\": 2,\n        \"topic\": \"Their Country Nigeria you and you\",\n        \"content\": \"Error Handling: By wrapping the logic in a try-catch block, we catch potential exceptions and handle them gracefully, rolling back the transaction in case of an error. Throwing a custom ModelNotFoundException or a generic exception with a clear message ensures that users or developers are notified appropriately when something goes wrong.Clean and Readable Code: The code is structured in a readable way, following the naming conventions and ensuring separation of concerns. The use of a dedicated method\",\n        \"image\": \"posts/b53e15f1-df20-4c69-9fcb-2af13a89198c.png\",\n        \"updated_at\": \"2025-04-09T15:50:55.000000Z\",\n        \"created_at\": \"2025-04-09T15:50:55.000000Z\",\n        \"id\": 6\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "UpdatePost",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{pass_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "topic",
+									"value": "The once upon a country",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "Error Handling: By wrapping the logic in a try-catch block, we catch potential exceptions and handle them gracefully, rolling back the transaction in case of an error",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "x_QmY5qPS/delete.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/tenant/update-post/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"tenant",
+								"update-post",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "UpdatePost",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "topic",
+											"value": "The once upon a country",
+											"type": "text"
+										},
+										{
+											"key": "content",
+											"value": "Error Handling: By wrapping the logic in a try-catch block, we catch potential exceptions and handle them gracefully, rolling back the transaction in case of an error",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "x_QmY5qPS/delete.png"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/tenant/update-post/1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"tenant",
+										"update-post",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 09 Apr 2025 15:47:26 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"user_id\": 2,\n    \"tenant_id\": 2,\n    \"topic\": \"The once upon a country\",\n    \"content\": \"Error Handling: By wrapping the logic in a try-catch block, we catch potential exceptions and handle them gracefully, rolling back the transaction in case of an error\",\n    \"image\": \"posts/bb12d175-eed9-43f8-b6ca-9836a7fd96c3.png\",\n    \"created_at\": \"2025-04-09T15:10:12.000000Z\",\n    \"updated_at\": \"2025-04-09T15:47:26.000000Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "DeletePost",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{pass_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"topic\": \"There was a country called  Nigeria\",\r\n    \"content\": \"Error Handling: By wrapping the logic in a try-catch block, we catch potential exceptions and handle them gracefully, rolling back the transaction in case of an error. Throwing a custom ModelNotFoundException or a generic exception with a clear message ensures that users or developers are notified appropriately when something goes wrong.Clean and Readable Code: The code is structured in a readable way, following the naming conventions and ensuring separation of concerns. The use of a dedicated method\",\r\n    \"images\" :[\r\n        \r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/tenant/delete-post/2",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"tenant",
+								"delete-post",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "DeletePost",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"topic\": \"There was a country called  Nigeria\",\r\n    \"content\": \"Error Handling: By wrapping the logic in a try-catch block, we catch potential exceptions and handle them gracefully, rolling back the transaction in case of an error. Throwing a custom ModelNotFoundException or a generic exception with a clear message ensures that users or developers are notified appropriately when something goes wrong.Clean and Readable Code: The code is structured in a readable way, following the naming conventions and ensuring separation of concerns. The use of a dedicated method\",\r\n    \"images\" :[\r\n        \r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/tenant/delete-post/2",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"tenant",
+										"delete-post",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 09 Apr 2025 15:48:02 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Post Deleted Successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "IndexPosts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "4|eKjVwQtXKdKpkaLqyp7PyXgbcNKlNz2xT7rPvsbE8a7bddc4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/tenant/posts/view",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"tenant",
+								"posts",
+								"view"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "IndexPosts",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/tenant/posts/view",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"tenant",
+										"posts",
+										"view"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 09 Apr 2025 15:48:28 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"All Datas\",\n    \"tenantPosts\": [\n        {\n            \"id\": 1,\n            \"user_id\": 2,\n            \"tenant_id\": 2,\n            \"topic\": \"The once upon a country\",\n            \"content\": \"Error Handling: By wrapping the logic in a try-catch block, we catch potential exceptions and handle them gracefully, rolling back the transaction in case of an error\",\n            \"image\": \"posts/bb12d175-eed9-43f8-b6ca-9836a7fd96c3.png\",\n            \"created_at\": \"2025-04-09T15:10:12.000000Z\",\n            \"updated_at\": \"2025-04-09T15:47:26.000000Z\"\n        },\n        {\n            \"id\": 3,\n            \"user_id\": 2,\n            \"tenant_id\": 2,\n            \"topic\": \"Their Country Nigeria\",\n            \"content\": \"Error Handling: By wrapping the logic in a try-catch block, we catch potential exceptions and handle them gracefully, rolling back the transaction in case of an error. Throwing a custom ModelNotFoundException or a generic exception with a clear message ensures that users or developers are notified appropriately when something goes wrong.Clean and Readable Code: The code is structured in a readable way, following the naming conventions and ensuring separation of concerns. The use of a dedicated method\",\n            \"image\": \"posts/35598cf0-4d93-4806-a427-e803a6d8c860.png\",\n            \"created_at\": \"2025-04-09T15:24:08.000000Z\",\n            \"updated_at\": \"2025-04-09T15:24:08.000000Z\"\n        },\n        {\n            \"id\": 4,\n            \"user_id\": 2,\n            \"tenant_id\": 2,\n            \"topic\": \"Their Country Nigeria\",\n            \"content\": \"Error Handling: By wrapping the logic in a try-catch block, we catch potential exceptions and handle them gracefully, rolling back the transaction in case of an error. Throwing a custom ModelNotFoundException or a generic exception with a clear message ensures that users or developers are notified appropriately when something goes wrong.Clean and Readable Code: The code is structured in a readable way, following the naming conventions and ensuring separation of concerns. The use of a dedicated method\",\n            \"image\": \"posts/a45b2f66-e6b1-46b5-b22a-82fc253dffef.png\",\n            \"created_at\": \"2025-04-09T15:33:57.000000Z\",\n            \"updated_at\": \"2025-04-09T15:33:57.000000Z\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "ViewPost/{id}",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "4|eKjVwQtXKdKpkaLqyp7PyXgbcNKlNz2xT7rPvsbE8a7bddc4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/tenant/posts/7",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"tenant",
+								"posts",
+								"7"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ViewPost/{id}",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/tenant/posts/3",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"tenant",
+										"posts",
+										"3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 09 Apr 2025 15:49:18 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Post Details\",\n    \"postId\": {\n        \"id\": 3,\n        \"user_id\": 2,\n        \"tenant_id\": 2,\n        \"topic\": \"Their Country Nigeria\",\n        \"content\": \"Error Handling: By wrapping the logic in a try-catch block, we catch potential exceptions and handle them gracefully, rolling back the transaction in case of an error. Throwing a custom ModelNotFoundException or a generic exception with a clear message ensures that users or developers are notified appropriately when something goes wrong.Clean and Readable Code: The code is structured in a readable way, following the naming conventions and ensuring separation of concerns. The use of a dedicated method\",\n        \"image\": \"posts/35598cf0-4d93-4806-a427-e803a6d8c860.png\",\n        \"created_at\": \"2025-04-09T15:24:08.000000Z\",\n        \"updated_at\": \"2025-04-09T15:24:08.000000Z\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "IsAdmin",
+			"item": [
+				{
+					"name": "ApproveTenant",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "5|3UUdsPSHV0GwRICiTzJ0Ix4MnaCkXWRUYhk9neWe074bf5f6",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/approve/3",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"approve",
+								"3"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ApproveTenant",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/admin/approve/2",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"admin",
+										"approve",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 09 Apr 2025 15:57:29 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"User account approve and Tenant created\"\n}"
+						}
+					]
+				},
+				{
+					"name": "AllPost",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2|PPT1MQ4aT2g1iBofgvCcfi7yhxOLxiiksUqBGr8uedbdb87d",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/posts/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"posts",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "AllPost",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/admin/posts/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"admin",
+										"posts",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 09 Apr 2025 15:55:04 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"All Datas\",\n    \"allPost\": [\n        {\n            \"id\": 1,\n            \"user_id\": 2,\n            \"tenant_id\": 2,\n            \"topic\": \"The once upon a country\",\n            \"content\": \"Error Handling: By wrapping the logic in a try-catch block, we catch potential exceptions and handle them gracefully, rolling back the transaction in case of an error\",\n            \"image\": \"posts/bb12d175-eed9-43f8-b6ca-9836a7fd96c3.png\",\n            \"created_at\": \"2025-04-09T15:10:12.000000Z\",\n            \"updated_at\": \"2025-04-09T15:47:26.000000Z\",\n            \"tenant\": {\n                \"id\": 2,\n                \"user_id\": 2,\n                \"tenant_name\": \"FoodiesBlog\",\n                \"created_at\": \"2025-04-09T15:05:49.000000Z\",\n                \"updated_at\": \"2025-04-09T15:05:49.000000Z\"\n            }\n        },\n        {\n            \"id\": 3,\n            \"user_id\": 2,\n            \"tenant_id\": 2,\n            \"topic\": \"Their Country Nigeria\",\n            \"content\": \"Error Handling: By wrapping the logic in a try-catch block, we catch potential exceptions and handle them gracefully, rolling back the transaction in case of an error. Throwing a custom ModelNotFoundException or a generic exception with a clear message ensures that users or developers are notified appropriately when something goes wrong.Clean and Readable Code: The code is structured in a readable way, following the naming conventions and ensuring separation of concerns. The use of a dedicated method\",\n            \"image\": \"posts/35598cf0-4d93-4806-a427-e803a6d8c860.png\",\n            \"created_at\": \"2025-04-09T15:24:08.000000Z\",\n            \"updated_at\": \"2025-04-09T15:24:08.000000Z\",\n            \"tenant\": {\n                \"id\": 2,\n                \"user_id\": 2,\n                \"tenant_name\": \"FoodiesBlog\",\n                \"created_at\": \"2025-04-09T15:05:49.000000Z\",\n                \"updated_at\": \"2025-04-09T15:05:49.000000Z\"\n            }\n        },\n        {\n            \"id\": 4,\n            \"user_id\": 2,\n            \"tenant_id\": 2,\n            \"topic\": \"Their Country Nigeria\",\n            \"content\": \"Error Handling: By wrapping the logic in a try-catch block, we catch potential exceptions and handle them gracefully, rolling back the transaction in case of an error. Throwing a custom ModelNotFoundException or a generic exception with a clear message ensures that users or developers are notified appropriately when something goes wrong.Clean and Readable Code: The code is structured in a readable way, following the naming conventions and ensuring separation of concerns. The use of a dedicated method\",\n            \"image\": \"posts/a45b2f66-e6b1-46b5-b22a-82fc253dffef.png\",\n            \"created_at\": \"2025-04-09T15:33:57.000000Z\",\n            \"updated_at\": \"2025-04-09T15:33:57.000000Z\",\n            \"tenant\": {\n                \"id\": 2,\n                \"user_id\": 2,\n                \"tenant_name\": \"FoodiesBlog\",\n                \"created_at\": \"2025-04-09T15:05:49.000000Z\",\n                \"updated_at\": \"2025-04-09T15:05:49.000000Z\"\n            }\n        },\n        {\n            \"id\": 5,\n            \"user_id\": 2,\n            \"tenant_id\": 2,\n            \"topic\": \"Their Country Nigeria you\",\n            \"content\": \"Error Handling: By wrapping the logic in a try-catch block, we catch potential exceptions and handle them gracefully, rolling back the transaction in case of an error. Throwing a custom ModelNotFoundException or a generic exception with a clear message ensures that users or developers are notified appropriately when something goes wrong.Clean and Readable Code: The code is structured in a readable way, following the naming conventions and ensuring separation of concerns. The use of a dedicated method\",\n            \"image\": null,\n            \"created_at\": \"2025-04-09T15:50:36.000000Z\",\n            \"updated_at\": \"2025-04-09T15:50:36.000000Z\",\n            \"tenant\": {\n                \"id\": 2,\n                \"user_id\": 2,\n                \"tenant_name\": \"FoodiesBlog\",\n                \"created_at\": \"2025-04-09T15:05:49.000000Z\",\n                \"updated_at\": \"2025-04-09T15:05:49.000000Z\"\n            }\n        },\n        {\n            \"id\": 6,\n            \"user_id\": 2,\n            \"tenant_id\": 2,\n            \"topic\": \"Their Country Nigeria you and you\",\n            \"content\": \"Error Handling: By wrapping the logic in a try-catch block, we catch potential exceptions and handle them gracefully, rolling back the transaction in case of an error. Throwing a custom ModelNotFoundException or a generic exception with a clear message ensures that users or developers are notified appropriately when something goes wrong.Clean and Readable Code: The code is structured in a readable way, following the naming conventions and ensuring separation of concerns. The use of a dedicated method\",\n            \"image\": \"posts/b53e15f1-df20-4c69-9fcb-2af13a89198c.png\",\n            \"created_at\": \"2025-04-09T15:50:55.000000Z\",\n            \"updated_at\": \"2025-04-09T15:50:55.000000Z\",\n            \"tenant\": {\n                \"id\": 2,\n                \"user_id\": 2,\n                \"tenant_name\": \"FoodiesBlog\",\n                \"created_at\": \"2025-04-09T15:05:49.000000Z\",\n                \"updated_at\": \"2025-04-09T15:05:49.000000Z\"\n            }\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "ViewPost/{id}",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2|PPT1MQ4aT2g1iBofgvCcfi7yhxOLxiiksUqBGr8uedbdb87d",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/post/3",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"post",
+								"3"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ViewPost/{id}",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/admin/post/3",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"admin",
+										"post",
+										"3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 09 Apr 2025 15:56:49 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Post Details\",\n    \"postId\": {\n        \"id\": 3,\n        \"user_id\": 2,\n        \"tenant_id\": 2,\n        \"topic\": \"Their Country Nigeria\",\n        \"content\": \"Error Handling: By wrapping the logic in a try-catch block, we catch potential exceptions and handle them gracefully, rolling back the transaction in case of an error. Throwing a custom ModelNotFoundException or a generic exception with a clear message ensures that users or developers are notified appropriately when something goes wrong.Clean and Readable Code: The code is structured in a readable way, following the naming conventions and ensuring separation of concerns. The use of a dedicated method\",\n        \"image\": \"posts/35598cf0-4d93-4806-a427-e803a6d8c860.png\",\n        \"created_at\": \"2025-04-09T15:24:08.000000Z\",\n        \"updated_at\": \"2025-04-09T15:24:08.000000Z\"\n    }\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

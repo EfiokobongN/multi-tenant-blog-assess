@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('tenant_id')->constrained()->onDelete('cascade');
             $table->string('topic');
             $table->longText('content');
-            $table->json("images")->nullable();
+            $table->string("image")->nullable();
             $table->timestamps();
         });
     }

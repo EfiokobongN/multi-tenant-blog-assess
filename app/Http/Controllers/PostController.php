@@ -17,16 +17,16 @@ class PostController extends Controller
 
     public function index(){
         $user = Util::Auth();
+
         $tenantPosts = Post::where('tenant_id', $user->tenant_id)->where('user_id',$user->id)->get();
-        if (!$tenantPosts) {
+        if ($tenantPosts->isEmpty()) {
             return response()->json([ 'message' => 'No Post Found']);
         }
 
         return response()->json(['success' => true, 'message' => 'All Datas', 'tenantPosts' => $tenantPosts]);
     }
-    public function view(Post $post){
-        $this->authorize('update', $post);
-        $postId = $post;
+    public function view($post){
+        $postId = Post::find($post);
         if (!$postId) {
             return response()->json([ 'message' => 'Post Not Found']);
         }
@@ -46,7 +46,7 @@ class PostController extends Controller
         $createPost->tenant_id = $user->tenant_id;
         $createPost->topic = $request->topic;
         $createPost->content = $request->content;
-        $createPost->images = $imagePath ?? null;
+        $createPost->image = $imagePath ?? null;
         $createPost->save();
 
         return response()->json(['success' => true, 'message' => 'New Post Created Successfully', 'createPost' => $createPost]);
@@ -59,18 +59,23 @@ class PostController extends Controller
         $this->authorize('update', $post);
 
         $imagePath = Util::storeImage($request);
-        $post->topic = $request->topic;
-        $post->content = $request->content;
-        $post->images = $imagePath ?? $post->images;
+        $post->topic = $request->topic ?? $post->topic;
+        $post->content = $request->content ?? $post->content;
+        $post->image = $imagePath ?? $post->image;
 
         $post->update();
+
+        return $post;
 
         return response()->json(['success' => true, 'message' => 'Post Updated Successfully', 'createPost' => $post]);
     }
 
-    public function delete(Post $post){
-        $this->authorize('delete', $post);
-        $post->delete();
+    public function delete($post){
+        $postId = Post::find($post);
+        if (!$postId) {
+            return response()->json([ 'message' => 'Post Not Found']);
+        }
+        $postId->delete();
         return response()->json(['success' => true, 'message' => 'Post Deleted Successfully']);
     }
 }

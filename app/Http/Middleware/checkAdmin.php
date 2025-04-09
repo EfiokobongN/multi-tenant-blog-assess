@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\User;
 use App\utility\Util;
 use Closure;
 use Illuminate\Http\Request;
@@ -18,7 +19,7 @@ class checkAdmin
     {
         $user = Util::Auth();
 
-        if(!$user || $user->role !== 'admin'){
+        if(!$user || $user->role !== User::$isAdmin){
             return response()->json(['success' => false, 'message' => 'UnAuthorized'], 403);
         }
         return $next($request);

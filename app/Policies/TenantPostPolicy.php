@@ -13,7 +13,7 @@ class TenantPostPolicy
      */
     public function store(User $user): bool
     {
-        return  $user->role === 'tenant'  && $user->is_approved === true;
+        return  $user->role === User::$tenant  && $user->is_approved === true;
     }
 
     /**
@@ -22,14 +22,6 @@ class TenantPostPolicy
     public function update(User $user, Post $post): bool
     {
        return  $user->tenant_id === $post->tenant_id;
-    }
-
-    /**
-     * Determine whether the user can delete the model.
-     */
-    public function delete(User $user, Post $post): bool
-    {
-        return  $user->tenant_id === $post->tenant_id;
     }
 
 

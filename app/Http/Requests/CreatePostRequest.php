@@ -24,7 +24,7 @@ class CreatePostRequest extends FormRequest
         return [
             'topic' => 'required|string',
             'content' => 'required|string',
-            'images' => 'file|mimes:jpeg,png,jpg,pdf|max:2048',
+            'image' => 'file|mimes:jpeg,png,jpg,pdf|max:2048',
         ];
     }
 }

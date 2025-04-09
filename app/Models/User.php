@@ -26,6 +26,9 @@ class User extends Authenticatable
         'is_approved'
     ];
 
+    public static $tenant = 'tenant';
+    public static $isAdmin = 'admin';
+
     public function tenant(){
         return $this->hasOne(Tenant::class, 'tenant_id');
     }

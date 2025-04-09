@@ -122,7 +122,7 @@ POST    api/register-account      Public    Register a user
 POST    api/account-login        Public    Login and receive token
 GET     api/posts/view            Tenant    List all tenant posts
 POST    api/create/post           Tenant    Create a new post
-PUT     api/update-post/{post}    Tenant    Update own post
+post     api/update-post/{post}    Tenant    Update own post
 delete  api/delete-post/{post}    Tenant    Tenant Delete own post
 GET     api/posts/{post}          Tenant    Single post view
 POST    api/admin/approve/{user}  Admin     Admin Approved a tenant account

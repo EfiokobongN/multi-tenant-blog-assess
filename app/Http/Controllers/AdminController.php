@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\Tenant;
 use App\Models\User;
+use App\utility\Util;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -12,10 +13,20 @@ class AdminController extends Controller
 {
     public function approvedUser(User $user){
 
+        $auth = Util::Auth();
+        if($auth->id === $user->id){
+            return response()->json(['success' => true, 'message' => 'You can not approve yourself as a tenant.']);
+        }
         DB::beginTransaction();
         try {
+
+            if($user->is_approved){
+                return response()->json(['success' => false, 'message' => 'User Account has already been approved.']);
+            }
+
            //approved user account
         $user->is_approved = true;
+        $user->role = User::$tenant;
         $user->save();
 
 
@@ -41,9 +52,9 @@ class AdminController extends Controller
 
     //GET ALL TENANTS POSTS IN THE DATABASE
     public function allpost(){
-        $allPost = Post::all()->with('tenant')->get();
-        if (!$allPost) {
-            return response()->json([ 'message' => 'No Post Found']);
+        $allPost = Post::with('tenant')->get();
+        if ($allPost->isEmpty()) {
+            return response()->json(['message' => 'No Post Found']);
         }
 
         return response()->json(['success' => true, 'message' => 'All Datas', 'allPost' => $allPost]);
