@@ -122,7 +122,8 @@ database/migrations - DB structure
 Method  Endpoints                 Access    Descrption
 
 POST    api/register-account      Public    Register a user
-POST    api/account-login        Public    Login and receive token
+POST    api/account-login         Public    Login and receive token
+POST    api/account-logout        Public    Logout and delete token
 GET     api/posts/view            Tenant    List all tenant posts
 POST    api/create/post           Tenant    Create a new post
 post     api/update-post/{post}    Tenant    Update own post
