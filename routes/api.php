@@ -19,9 +19,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/register-account', [AuthController::class, 'store']);
 Route::post('/account-login', [AuthController::class, 'login']);
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('/account-logout', [AuthController::class, 'logout']);
+});
 
 
-
+//Tenant Route
 Route::middleware('auth:sanctum', 'approved')->group(function () {
     Route::prefix("tenant")->group(function() {
         Route::post('/create/post', [PostController::class, 'store']);
@@ -32,7 +35,7 @@ Route::middleware('auth:sanctum', 'approved')->group(function () {
     });
 });
 
-
+//Admin Route
 Route::middleware('auth:sanctum','checkAdminRole')->group(function () {
     Route::post('/admin/approve/{user}', [AdminController::class, 'approvedUser']);
     Route::get('/admin/posts', [AdminController::class, 'allpost']);
